@@ -3,17 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Academic homepage of Zihan Ruan, an MEng student in Electrical Engineering at the University of British Columbia Okanagan.">
-  <title>Zihan Ruan — Academic Homepage</title>
+  <meta name="description" content="Academic homepage of Zihan Ruan, an MEng student in Electrical Engineering at the University of British Columbia.">
+  <title>Zihan Ruan</title>
   <style>
     :root {
-      --ink: #17252d;
-      --muted: #607078;
-      --paper: #fbfbf8;
-      --line: #e3e5e1;
-      --accent: #145c59;
-      --warm: #c9783f;
-      --max-width: 1060px;
+      --ink: #151c24;
+      --muted: #68717b;
+      --line: #dfe3e7;
+      --accent: #274b70;
+      --paper: #fcfcfb;
+      --measure: 900px;
     }
 
     * { box-sizing: border-box; }
@@ -22,163 +21,203 @@
       margin: 0;
       color: var(--ink);
       background: var(--paper);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
       line-height: 1.65;
     }
-    a { color: inherit; text-underline-offset: 3px; }
+    ::selection { color: #fff; background: var(--accent); }
+    a { color: inherit; text-underline-offset: 4px; }
     a:hover { color: var(--accent); }
-    .shell { width: min(calc(100% - 48px), var(--max-width)); margin: 0 auto; }
-    .topbar {
+    .page { width: min(calc(100% - 48px), var(--measure)); margin: 0 auto; }
+
+    .site-header {
       display: flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: space-between;
-      padding: 28px 0 20px;
+      gap: 28px;
+      padding: 26px 0 22px;
       border-bottom: 1px solid var(--line);
     }
-    .mark {
+    .site-name {
       color: var(--ink);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 1rem;
-      font-weight: 700;
-      letter-spacing: .02em;
+      font-size: 1.05rem;
       text-decoration: none;
     }
-    nav { display: flex; flex-wrap: wrap; gap: 22px; color: var(--muted); font-size: .88rem; }
+    nav { display: flex; flex-wrap: wrap; gap: 18px; color: var(--muted); font-size: .82rem; }
     nav a { text-decoration: none; }
-    .hero {
-      padding: 112px 0 104px;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      margin: 0 0 22px;
+
+    .hero { padding: 104px 0 98px; }
+    .kicker {
+      margin: 0 0 24px;
       color: var(--accent);
-      font-size: .74rem;
-      font-weight: 700;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .68rem;
       letter-spacing: .14em;
       text-transform: uppercase;
     }
-    .eyebrow::before { width: 28px; height: 2px; background: var(--warm); content: ""; }
-    h1, h2, h3 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-weight: 400; line-height: 1.08; }
-    h1 { max-width: 720px; font-size: clamp(3.8rem, 9vw, 7.2rem); letter-spacing: -.06em; }
-    .role { margin: 25px 0 0; color: var(--muted); font-size: 1.08rem; }
-    .links { display: flex; flex-wrap: wrap; gap: 12px 20px; margin-top: 30px; color: var(--accent); font-size: .9rem; }
-    .links a { text-decoration: none; }
-    .links a::after { display: inline-block; margin-left: 7px; content: "↗"; font-size: .82em; }
-    section { padding: 72px 0; border-top: 1px solid var(--line); }
-    .section-grid { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 56px; }
-    .section-label { color: var(--accent); font-size: .74rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-    h2 { font-size: clamp(2rem, 4vw, 3.2rem); }
-    .research-layout { max-width: 760px; }
-    .research-layout p { max-width: 650px; margin: 22px 0 0; color: var(--muted); }
-    .topic-list { display: flex; flex-wrap: wrap; gap: 8px 22px; margin: 30px 0 0; padding: 0; list-style: none; color: var(--accent); font-size: .9rem; }
-    .topic-list li::before { margin-right: 9px; color: var(--warm); content: "•"; }
-    .publication-list { display: grid; gap: 28px; max-width: 790px; margin: 34px 0 0; padding: 0; list-style: none; counter-reset: publications; }
-    .publication-list li { position: relative; padding: 0 0 0 42px; counter-increment: publications; }
-    .publication-list li::before { position: absolute; top: 1px; left: 0; color: var(--warm); content: "0" counter(publications); font-family: Georgia, "Times New Roman", serif; font-size: 1.1rem; }
-    .publication-title { display: block; margin-bottom: 5px; font-family: Georgia, "Times New Roman", serif; font-size: 1.2rem; line-height: 1.35; }
-    .publication-meta { color: var(--muted); font-size: .9rem; }
-    .education-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); }
-    .education-card:first-child { padding-top: 0; border-top: 0; }
-    .education-card h3 { font-size: 1.35rem; }
-    .education-card p { margin: 6px 0 0; color: var(--muted); }
-    .education-date { color: var(--muted); font-size: .88rem; white-space: nowrap; }
-    footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px 0 38px; color: var(--muted); font-size: .78rem; }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.12;
+    }
+    h1 { max-width: 700px; font-size: clamp(3.5rem, 9vw, 6.3rem); letter-spacing: -.065em; }
+    .role { margin: 24px 0 0; color: var(--muted); font-size: 1.06rem; line-height: 1.5; }
+    .focus {
+      max-width: 690px;
+      margin: 36px 0 0;
+      padding-left: 18px;
+      border-left: 2px solid var(--accent);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.28rem;
+      line-height: 1.45;
+    }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 30px; color: var(--accent); font-size: .88rem; }
+    .hero-links a { text-decoration: none; }
+    .hero-links a::after { margin-left: 6px; content: "↗"; font-size: .82em; }
 
-    @media (max-width: 760px) {
-      .shell { width: min(calc(100% - 32px), var(--max-width)); }
-      .topbar { align-items: flex-start; gap: 18px; }
-      nav { gap: 8px 14px; justify-content: flex-end; }
-      .hero { padding: 72px 0 66px; }
-      h1 { font-size: clamp(3.3rem, 18vw, 5.2rem); }
-      section { padding: 54px 0; }
-      .section-grid { grid-template-columns: 1fr; gap: 24px; }
-      .education-card { grid-template-columns: 1fr; gap: 2px; }
-      footer { display: block; }
-      footer span { display: block; margin-top: 6px; }
+    section { padding: 66px 0 72px; border-top: 1px solid var(--line); }
+    .section-heading {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 38px;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+    .section-number {
+      color: var(--accent);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h2 { font-size: clamp(2rem, 5vw, 3.1rem); letter-spacing: -.035em; }
+    .section-intro { max-width: 670px; margin: 0 0 34px 188px; color: var(--muted); }
+
+    .research-entry, .publication-entry, .experience-entry {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr);
+      gap: 38px;
+      padding: 24px 0;
+      border-top: 1px solid var(--line);
+    }
+    .research-entry:first-of-type, .publication-entry:first-of-type, .experience-entry:first-of-type { padding-top: 0; border-top: 0; }
+    .entry-label { color: var(--muted); font-size: .78rem; }
+    .entry-title { display: block; margin-bottom: 7px; font-family: Georgia, "Times New Roman", serif; font-size: 1.42rem; line-height: 1.25; }
+    .entry-copy { max-width: 650px; margin: 0; color: var(--muted); }
+    .entry-meta { color: var(--muted); font-size: .86rem; }
+    .entry-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px; color: var(--accent); font-size: .82rem; }
+    .entry-links a { text-decoration: none; }
+    .entry-links a::after { margin-left: 5px; content: "↗"; font-size: .8em; }
+
+    .publication-entry { grid-template-columns: 44px minmax(0, 1fr); }
+    .publication-index { color: var(--accent); font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; font-size: .76rem; }
+    .experience-entry { grid-template-columns: 150px minmax(0, 1fr); }
+    .experience-role { display: block; margin-top: 3px; color: var(--muted); font-size: .9rem; }
+
+    footer { padding: 30px 0 38px; border-top: 1px solid var(--line); color: var(--muted); font-size: .76rem; }
+    footer span + span { margin-left: 20px; }
+
+    @media (max-width: 680px) {
+      .page { width: min(calc(100% - 32px), var(--measure)); }
+      .site-header { align-items: flex-start; }
+      nav { justify-content: flex-end; gap: 7px 13px; }
+      .hero { padding: 74px 0 68px; }
+      h1 { font-size: clamp(3.2rem, 17vw, 5.2rem); }
+      .focus { font-size: 1.12rem; }
+      section { padding: 52px 0 58px; }
+      .section-heading, .research-entry, .publication-entry, .experience-entry { grid-template-columns: 1fr; gap: 9px; }
+      .section-heading { margin-bottom: 26px; }
+      .section-intro { margin-left: 0; }
+      .research-entry, .publication-entry, .experience-entry { gap: 8px; }
+      .publication-index { margin-bottom: 2px; }
+      footer span { display: block; }
+      footer span + span { margin: 5px 0 0; }
     }
   </style>
 </head>
 <body>
-  <div class="shell">
-    <header class="topbar">
-      <a class="mark" href="#top">ZR</a>
+  <div class="page">
+    <header class="site-header">
+      <a class="site-name" href="#top">Zihan Ruan</a>
       <nav aria-label="Primary navigation">
         <a href="#research">Research</a>
         <a href="#publications">Publications</a>
-        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
         <a href="ZihanRuan_CV.pdf" target="_blank" rel="noreferrer">CV</a>
       </nav>
     </header>
 
     <main id="top">
       <section class="hero" aria-labelledby="page-title">
-        <div>
-          <p class="eyebrow">Academic homepage</p>
-          <h1 id="page-title">Zihan Ruan</h1>
-          <p class="role">MEng Student in Electrical Engineering<br>University of British Columbia · Okanagan</p>
-          <div class="links" aria-label="External links">
-            <a href="https://scholar.google.com/citations?user=FzCowRAAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noreferrer">Google Scholar</a>
-          </div>
+        <p class="kicker">Academic homepage / 2026</p>
+        <h1 id="page-title">Zihan Ruan</h1>
+        <p class="role">MEng Student in Electrical Engineering<br>University of British Columbia</p>
+        <p class="focus">LLM Serving Systems · KV Cache Management · Efficient LLM Inference · AI Infrastructure</p>
+        <div class="hero-links" aria-label="Personal links">
+          <a href="mailto:zihan.ruan174@gmail.com">Email</a>
+          <a href="https://github.com/zihanruan174" target="_blank" rel="noreferrer">GitHub</a>
+          <a href="https://scholar.google.com/citations?user=FzCowRAAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noreferrer">Google Scholar</a>
+          <a href="ZihanRuan_CV.pdf" target="_blank" rel="noreferrer">CV</a>
         </div>
       </section>
 
       <section id="research" aria-labelledby="research-title">
-        <div class="section-grid">
-          <div class="section-label">01 / Research</div>
-          <div class="research-layout">
-            <div>
-              <h2 id="research-title">Research interests.</h2>
-              <p>My research interests focus on systems for efficient large language model serving, with particular attention to the memory and runtime demands of long-output workloads.</p>
-            </div>
-            <ul class="topic-list" aria-label="Research areas">
-              <li>LLM Serving</li>
-              <li>KV Cache</li>
-              <li>AI Infrastructure</li>
-            </ul>
-          </div>
+        <div class="section-heading">
+          <div class="section-number">01 / Research</div>
+          <h2 id="research-title">Selected research</h2>
         </div>
+        <p class="section-intro">I study system-level optimization for long-reasoning language model serving, with particular interest in KV cache management and runtime behavior for long-output workloads.</p>
+        <article class="research-entry">
+          <div class="entry-label">Current direction</div>
+          <div>
+            <strong class="entry-title">Long-CoT LLM Serving &amp; KV Cache Management</strong>
+            <p class="entry-copy">Investigating how generated KV states can be retained, evicted, recomputed, placed, and scheduled across the serving system.</p>
+          </div>
+        </article>
+        <article class="research-entry">
+          <div class="entry-label">Research areas</div>
+          <div>
+            <strong class="entry-title">Systems for efficient inference</strong>
+            <p class="entry-copy">LLM serving systems, KV cache management, efficient LLM inference, and AI infrastructure.</p>
+          </div>
+        </article>
       </section>
 
       <section id="publications" aria-labelledby="publications-title">
-        <div class="section-grid">
-          <div class="section-label">02 / Publications</div>
-          <div>
-            <h2 id="publications-title">Selected publications.</h2>
-            <ol class="publication-list">
-              <li>
-                <span class="publication-title">“Bridging Text and Vision: A Multi-View Text-Vision Registration Approach for Cross-Modal Place Recognition”</span>
-                <span class="publication-meta">T. Shang, Z. Li, P. Xu, J. Qiao, G. Chen, Z. Ruan, and W. Hu · IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025 · Oral Presentation</span>
-              </li>
-            </ol>
-          </div>
+        <div class="section-heading">
+          <div class="section-number">02 / Publications</div>
+          <h2 id="publications-title">Selected publications</h2>
         </div>
+        <article class="publication-entry">
+          <div class="publication-index">01</div>
+          <div>
+            <strong class="entry-title">“Bridging Text and Vision: A Multi-View Text-Vision Registration Approach for Cross-Modal Place Recognition”</strong>
+            <p class="entry-meta">T. Shang, Z. Li, P. Xu, J. Qiao, G. Chen, Z. Ruan, and W. Hu · IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2025 · Oral Presentation</p>
+          </div>
+        </article>
       </section>
 
-      <section id="education" aria-labelledby="education-title">
-        <div class="section-grid">
-          <div class="section-label">03 / Education</div>
-          <div>
-            <h2 id="education-title">Academic background.</h2>
-            <div style="margin-top: 34px;">
-              <article class="education-card">
-                <div>
-                  <h3>University of British Columbia</h3>
-                  <p>Master of Engineering in Electrical Engineering · UBC Okanagan</p>
-                </div>
-                <div class="education-date">2026 — present</div>
-              </article>
-              <article class="education-card">
-                <div>
-                  <h3>Fuzhou University – Maynooth University Joint Program</h3>
-                  <p>B.Eng. in Electronic Information Engineering, Fuzhou University<br>B.Eng. (Honours) in Electronic Engineering, Maynooth University</p>
-                </div>
-                <div class="education-date">2022 — 2026</div>
-              </article>
-            </div>
-          </div>
+      <section id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <div class="section-number">03 / Experience</div>
+          <h2 id="experience-title">Research and teaching</h2>
         </div>
+        <article class="experience-entry">
+          <div class="entry-label">Apr. 2026 — present</div>
+          <div>
+            <strong class="entry-title">AIMNet Lab, East China University of Science and Technology</strong>
+            <span class="experience-role">Research Intern · Long-CoT LLM Serving and KV Cache Management</span>
+          </div>
+        </article>
+        <article class="experience-entry">
+          <div class="entry-label">Sep. 2025 — Feb. 2026</div>
+          <div>
+            <strong class="entry-title">Fuzhou University</strong>
+            <span class="experience-role">Teaching Assistant · EE302 Real-Time and Embedded Systems</span>
+          </div>
+        </article>
       </section>
     </main>
 
